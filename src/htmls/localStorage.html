@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>localStorage</title>
+    </head>
+    <body>
+        <h2>localStorage</h2>
+        <button onclick="saveData()">保存</button>
+        <button onclick="readData()">读取</button>
+        <button onclick="delData()">删除</button>
+    </body>
+<script type="text/javascript">
+    let p = {'name': '张三', 'age': 25}
+    function saveData () {
+        console.log('save...')
+        localStorage.setItem('msg', 'hello,WTD2!')
+        localStorage.setItem('person', JSON.stringify(p))
+        // 把对象转为字符串JSON.stringify
+    }    
+    function readData() {
+        let p = localStorage.getItem('person')
+        console.log(JSON.parse(p))
+        // 把字符串转为对象 JSON.parse
+    }
+    function delData () {
+        localStorage.removeItem('msg')
+    }
+</script>
+
+</html>
