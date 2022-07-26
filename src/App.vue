@@ -23,12 +23,14 @@
     <!-- 第三种子向父传递数据 -->
     <FirstChild ref="firstChild"></FirstChild>
     <SecondChild></SecondChild>
+    <ThreeChild></ThreeChild>
   </div>
 </template>
 
 <script>
 import FirstChild from './components/FirstChild.vue';
 import SecondChild from './components/ScondChild.vue'
+import ThreeChild from './components/ThreeChild.vue';
 // import ScondChild from './components/ScondChild.vue';
 // import pubsub from 'pubsub-js'
 // import MyList from './components/MyList.vue'
@@ -41,6 +43,7 @@ export default {
     // School,
     FirstChild,
     SecondChild,
+    ThreeChild
     // ScondChild
 },
   name: "App",
