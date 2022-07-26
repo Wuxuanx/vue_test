@@ -22,23 +22,27 @@
 
     <!-- 第三种子向父传递数据 -->
     <FirstChild ref="firstChild"></FirstChild>
-
+    <SecondChild></SecondChild>
   </div>
 </template>
 
 <script>
 import FirstChild from './components/FirstChild.vue';
+import SecondChild from './components/ScondChild.vue'
+// import ScondChild from './components/ScondChild.vue';
 // import pubsub from 'pubsub-js'
 // import MyList from './components/MyList.vue'
 // import MyFooter from './components/MyFooter.vue'
 // import MyHeader from './components/MyHeader.vue'
 // import School from "./components/School";
 export default {
-  components: { 
+  components: {
     // MyHeader, MyList, MyFooter, 
     // School,
     FirstChild,
-    },
+    SecondChild,
+    // ScondChild
+},
   name: "App",
   data() {
     return {

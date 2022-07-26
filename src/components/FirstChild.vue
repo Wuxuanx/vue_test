@@ -18,6 +18,15 @@ export default {
         sendToFather() {
             this.$emit('getFirstChild', this.name)
         }
+    },
+    mounted() {
+        this.$bus.$off('hello') // 绑定事件前，先解绑该事件，以免事件多次绑定，执行多次方法
+        this.$bus.$on('hello', (data) => {
+            console.log('接收SecondChild的传值：' + data)
+        })
+    },
+    beforeDestroy() {
+        this.$bus.$off('hello')
     }
 };
 </script>
