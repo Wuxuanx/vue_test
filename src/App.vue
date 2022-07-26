@@ -13,7 +13,7 @@
         ></my-footer>
       </div>
     </div> -->
-    
+
     <!-- 第一种子向父传递数据 -->
     <!-- <FirstChild @getFirstChild="getFirstChild"></FirstChild> -->
 
@@ -24,13 +24,24 @@
     <FirstChild ref="firstChild"></FirstChild>
     <SecondChild></SecondChild>
     <ThreeChild></ThreeChild>
+    <getStudentInfo></getStudentInfo>
+    <hr />
+    <div class="container">
+      <CategoryFirst title="游戏" :listData="game"></CategoryFirst>
+      <CategoryFirst title="美食" :listData="food"></CategoryFirst>
+      <CategoryFirst title="电影" :listData="film"></CategoryFirst>
+    </div>
+
+    <hr />
   </div>
 </template>
 
 <script>
-import FirstChild from './components/FirstChild.vue';
-import SecondChild from './components/ScondChild.vue'
-import ThreeChild from './components/ThreeChild.vue';
+import FirstChild from "./components/FirstChild.vue";
+import SecondChild from "./components/ScondChild.vue";
+import ThreeChild from "./components/ThreeChild.vue";
+import getStudentInfo from "./components/getStudentInfo.vue";
+import CategoryFirst from "./components/CategoryFirst.vue";
 // import ScondChild from './components/ScondChild.vue';
 // import pubsub from 'pubsub-js'
 // import MyList from './components/MyList.vue'
@@ -39,22 +50,27 @@ import ThreeChild from './components/ThreeChild.vue';
 // import School from "./components/School";
 export default {
   components: {
-    // MyHeader, MyList, MyFooter, 
+    // MyHeader, MyList, MyFooter,
     // School,
     FirstChild,
     SecondChild,
-    ThreeChild
+    ThreeChild,
+    getStudentInfo,
     // ScondChild
-},
+    CategoryFirst,
+  },
   name: "App",
   data() {
     return {
       todoList: JSON.parse(localStorage.getItem("todoList")) || [],
+      food:['包子', '胡辣汤', '油条'],
+      film: ['甜蜜家园', '狙击手', '建国'],
+      game: ['lol', '王者', 'dota']
     };
   },
   methods: {
     getFirstChild(name) {
-      console.log('接收子模块传递值为： ' + name)
+      console.log("接收子模块传递值为： " + name);
     },
     // 添加一个todo
     addTodo(todo) {
@@ -103,9 +119,9 @@ export default {
     // this.$refs.firstChild.$on('getFirstChild', this.getFirstChild)
 
     // 与上面这个作用一致，只是写法不同
-    this.$refs.firstChild.$on('getFirstChild', (name)=> {
-      console.log(name)
-    })
+    this.$refs.firstChild.$on("getFirstChild", (name) => {
+      console.log(name);
+    });
 
     // this.pubId_check = pubsub.subscribe('checkTodo', this.checkTodo)
     // this.pubId_delete = pubsub.subscribe('deleteTodo', this.deleteTodo)
@@ -120,6 +136,10 @@ export default {
 </script>
 
 <style>
+.container {
+  display: flex;
+  justify-content: space-around;
+}
 /*base*/
 body {
   background: #fff;

@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
+import vueResource from 'vue-resource'
 
 Vue.config.productionTip = false
+// 使用vue-resource组件
+Vue.use(vueResource)
 
 new Vue({
   render: h => h(App),
